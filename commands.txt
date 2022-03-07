@@ -1,0 +1,3 @@
+Simple Command Line commands:
+Remove folder:- rmdir foldername
+Create file:- type nul > tab_js.html

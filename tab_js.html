@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tabs span {
+    padding: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+.tabs {
+    border: 1px solid #ccc;
+    background: #fafafa;
+}
+.tabs-wrapper {
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 20px 20px 0px;
+}
+.tabs-content p {
+    margin-top: 0px;
+}
+.tabs-content {
+    display: none;
+}
+.tabs-content.active {
+    display: block;
+}
+.tabs-content h3 {
+    margin-top: 0px;
+}
+    </style>
+</head>
+<body>
+    <h1>Tab Example</h1>
+    <div class="maintab-wrap">
+    <div class="tabs">
+        <span data-tab-value="#tab_1">Tab 1</span>
+        <span data-tab-value="#tab_2">Tab 2</span>
+        <span data-tab-value="#tab_3">Tab 3</span>
+    </div>
+
+    <div class="tabs-wrapper">
+        <div class="tabs-content active" id="tab_1" data-tab-info>
+            <h3>Tab content 1</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+
+        <div class="tabs-content" id="tab_2" data-tab-info>
+            <h3>Tab content 2</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+
+        <div class="tabs-content" id="tab_3" data-tab-info>
+            <h3>Tab content 3</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+    </div>
+
+    <script>
+        const tabsval = document.querySelectorAll('[data-tab-value]');
+        const tabsinfo = document.querySelectorAll('[data-tab-info]');
+        //console.log(tabsval);
+
+        
+
+        tabsval.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document.querySelector(tab.dataset.tabValue);
+                console.log(target);
+
+                tabsinfo.forEach(tab_content => {
+                    tab_content.classList.remove('active');
+                })
+                target.classList.add('active');
+            
+            })
+
+           
+        })
+
+
+    </script>
+
+</body>
+</html>
